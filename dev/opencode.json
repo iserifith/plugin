@@ -1,0 +1,30 @@
+{
+  "run": [{
+    "when": "{{platform === 'win32'}}",
+    "id": "run",
+    "method": "shell.run",
+    "params": {
+      "shell": "{{kernel.path('bin/miniconda/Library/bin/bash.exe')}}",
+      "conda": {
+        "skip": true
+      },
+      "env": {
+        "OPENCODE_GIT_BASH_PATH": "{{kernel.path('bin/miniconda/Library/bin/bash.exe')}}"
+      },
+      "message": "npx -y opencode@latest {{args.prompt ? JSON.stringify(args.prompt) : ''}}",
+      "path": "{{args.cwd}}",
+      "input": true,
+      "buffer": 1024
+    }
+  }, {
+    "when": "{{platform !== 'win32'}}",
+    "id": "run",
+    "method": "shell.run",
+    "params": {
+      "message": "npx -y opencode@latest {{args.prompt ? JSON.stringify(args.prompt) : ''}}",
+      "path": "{{args.cwd}}",
+      "input": true,
+      "buffer": 1024
+    }
+  }]
+}
