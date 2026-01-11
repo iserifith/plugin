@@ -55,6 +55,14 @@ module.exports = {
           },
         },
         {
+          image: "/asset/plugin/dev/opencode.png",
+          text: "OpenCode",
+          href: "/run/plugin/dev/opencode.json",
+          params: {
+            cwd: info.cwd()
+          },
+        },
+        {
           image: "/asset/plugin/dev/crush.png",
           text: "Crush",
           href: "/run/plugin/dev/crush.json",
